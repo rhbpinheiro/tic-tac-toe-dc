@@ -1,3 +1,4 @@
+//Variables
 let buttonReset = document.querySelector('.reset')
 let buttonStart = document.querySelector('.btn-start')
 let boxes = document.querySelectorAll('.box')
@@ -10,21 +11,44 @@ let showPlayer = document.querySelector('.player')
 let reset = document.querySelector('.reset')
 let activePlayerX = document.querySelector('.player-x')
 let activePlayerO = document.querySelector('.player-o')
-
 let currentPlayer = ''
 
+//Events
 playerX.addEventListener('click', selectPlayerX)
 
 playerO.addEventListener('click', selectPlayerO)
 
 reset.addEventListener('click', resetGame)
+
+for (let i = 0; i < boxes.length; i++) {
+  let element = boxes[i]
+  function markBox() {
+    console.log(currentPlayer)
+    if(element.innerHTML === ''){
+      element.innerHTML = currentPlayer
+      changePlayer()
+    }
+  } 
+  element.addEventListener('click', markBox)
+}
+
+function clearBoxes() {
+  for (let i = 0; i < boxes.length; i++) {
+    const element = boxes[i];
+    if(element.innerHTML !== '') {
+      element.innerHTML = '';
+    } 
+  }
+}
+
+//Functions
 function resetGame() {
   selectStart.style.display = 'block'
   totalArea.style.display = 'none'
   subTitle.style.display = 'none'
   showPlayer.style.display = 'none'
   reset.style.display = 'none'
-  
+  clearBoxes()
 }
 
 function selectPlayerX() {
@@ -49,27 +73,13 @@ function selectPlayerO() {
   reset.style.display = 'block'
 }
 
-
 function changePlayer(){
-  if(currentPlayer === '') {
-      currentPlayer = '0'
-    } else {
-      currentPlayer = 'x'
-    }
+  if(currentPlayer === 'X') {
+    currentPlayer = 'O'
+    selectPlayerO()
+    } else  if(currentPlayer === 'O'){
+    currentPlayer = 'X'
+    selectPlayerX()
+  }
 }
 
-
-for (let i = 0; i < boxes.length; i++) {
-
-  let element = boxes[i]
-  function markBox() {
-    if(element.innerHTML === ''){
-      element.innerHTML = currentPlayer
-      changePlayer()
-    }
-  console.log(currentPlayer) 
-
-  } 
-  element.addEventListener('click', markBox)
-
-}
