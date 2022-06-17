@@ -25,7 +25,7 @@ body{
 }
 
 .total-area {
-  display: block;
+  display:  none;
   justify-content: center;
   width: 350px;
   height: 450px;
@@ -42,7 +42,7 @@ body{
 }
 
 .select-start {
-  display: none;
+  display: block;
   flex-direction: column;
   width: 400px;
   height: 200px;
@@ -59,7 +59,7 @@ body{
 }
 
 h1 {
-  display:block;
+  display: block;
   padding: 10px;
   text-align: center;
   font-size: 40px;
@@ -112,13 +112,13 @@ button.player_x, .player_o {
   border-radius: 50px;
 }
 
-.player-x{
+.player-active{
   background-color: #704A81;
   color:#5FFBF1;
-}
+} 
 
 .winner{
-  display: block;
+  display:  none;
   font-size: 25px;
   text-align: center;
   align-items: center;
@@ -126,7 +126,7 @@ button.player_x, .player_o {
 }
 
 h2 {
-  display: block;
+  display:none;
   padding: 10px;
   text-align: center;
   font-size: 50px;
@@ -166,7 +166,7 @@ h2 {
 }
 
 .reset{
-  display: block;
+  display: none;
   width: 100px;
   height: 50px;
   font-family: "Permanent Marker", Helvetica, sans-serif;
