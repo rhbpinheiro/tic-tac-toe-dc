@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/ico" href="./image/icon.ico"/>
   <title>Tic Tac Toe</title>
 </head>
 <body>
@@ -14,38 +15,42 @@
       <div class="bar"></div>
       <div class="select">
         SELECT WHICH YOU WANT TO BE?
-        <button class="player_x">Player X</button>
-        <button class="player_o">Player O</button>
+        <button class="select-player">Player X</button>
+        <button class="select-player">Player O</button>
       </div>
     </div>
+
     <h2 class="subtitle">Tic Tac Toe</h2>
+
     <div class="total-area">
+
       <div class="player">
-        <!-- Essas divs irão aternar as cores de acordo com a vez do jogador -->
-        <div class="player-x">Player X</div>
-        <div class="player-o">Player O</div>
+        <div id="playing-x" class="playing">Player X</div>
+        <div id="playing-o" class="playing">Player O</div>
+        <div class="winner">THE WINNER WAS --</div>
       </div>
       
-      <div class="winner">
-        THE WINNER WAS --
-      </div>
-
       <div class="area">
-        <div class="box "></div>
-        <div class="box "></div>
-        <div class="box "></div>
+        <div class="box" data-box="a1"></div>
+        <div class="box" data-box="a2"></div>
+        <div class="box" data-box="a3"></div>
 
-        <div class="box "></div>
-        <div class="box "></div>
-        <div class="box "></div>
+        <div class="box" data-box="b1"></div>
+        <div class="box" data-box="b2"></div>
+        <div class="box" data-box="b3"></div>
 
-        <div class="box "></div>
-        <div class="box "></div>
-        <div class="box "></div>        
+        <div class="box" data-box="c1"></div>
+        <div class="box" data-box="c2"></div>
+        <div class="box" data-box="c3"></div>
+
       </div>
+
     </div>
+
     <button class="reset" type="button">Reset</button>
-  </section>    
+
+  </section>   
+
   <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
