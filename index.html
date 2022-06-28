@@ -5,47 +5,55 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Eventos</title>
+  <link rel="icon" type="image/ico" href="./image/icon.ico"/>
+  <title>Tic Tac Toe</title>
 </head>
 <body>
+  
   <section class="container">
     <div class="select-start">
       <h1>Tic Tac Toe</h1>
       <div class="bar"></div>
       <div class="select">
         SELECT WHICH YOU WANT TO BE?
-        <button class="player_x">Player X</button>
-        <button class="player_o">Player O</button>
+        <button class="select-player">Player X</button>
+        <button class="select-player">Player O</button> 
       </div>
     </div>
-    <h2>Tic Tac Toe</h2>
+
+    <h2 class="subtitle">Tic Tac Toe</h2>
+
     <div class="total-area">
-      <div class="player show-player">
-        <!-- Essas divs irão aternar as cores de acordo com a vez do jogador -->
-        <div class="player-x">Player X</div>
-        <div class="player-o">Player O</div>
+
+      <div class="player">
+        <div id="playing-x" class="playing">Player X</div>
+        <div id="playing-o" class="playing">Player O</div>
+        <div class="winner"></div>
       </div>
       
-      <div class="winner">
-        THE WINNER WAS --
-      </div>
-
       <div class="area">
-        <div class="box "></div>
-        <div class="box "></div>
-        <div class="box "></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
 
-        <div class="box "></div>
-        <div class="box "></div>
-        <div class="box "></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
 
-        <div class="box "></div>
-        <div class="box "></div>
-        <div class="box "></div>        
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
       </div>
+
     </div>
+
     <button class="reset" type="button">Reset</button>
-  </section>    
+
+    <p>Developed by Rodolpho Pinheiro</p>
+
+  </section>
+
   <script type="text/javascript" src="script.js"></script>
+
 </body>
 </html>
