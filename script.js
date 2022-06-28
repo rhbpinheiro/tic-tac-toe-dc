@@ -26,7 +26,6 @@ for(let i = 0; i < boxes.length; i++) {
     if(box.innerHTML === '' && winner === '') {
       box.innerHTML = currentPlayer
       playCounter++
-      console.log(playCounter)
       changePlayer()
       checkWinner()
       
