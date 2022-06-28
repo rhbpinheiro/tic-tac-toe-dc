@@ -1,5 +1,5 @@
-//Variable
 let winner = ''
+let playCounter = 0
 let currentPlayer = ''
 let reset = document.querySelector('.reset')
 let boxes = document.querySelectorAll('.box')
@@ -13,13 +13,11 @@ let activePlayerO = document.querySelector('#playing-o')
 let player = document.querySelectorAll('.select-player')
 let selectStart = document.querySelector('.select-start')
 
-
-//Events/Functions
 reset.addEventListener('click', resetGame)
 
 for(let i = 0; i < player.length; i++) {
-  let play = player[i]
-  play.addEventListener('click', selectPlayer)
+  let play = player[i];
+  play.addEventListener("click", selectPlayer);
 }
 
 for(let i = 0; i < boxes.length; i++) {
@@ -27,11 +25,14 @@ for(let i = 0; i < boxes.length; i++) {
   function markBox() {
     if(box.innerHTML === '' && winner === '') {
       box.innerHTML = currentPlayer
+      playCounter++
+      console.log(playCounter)
       changePlayer()
       checkWinner()
-      checkDraw()
+      
     }
     showWinner()  
+    checkDraw()
   } 
   box.addEventListener('click', markBox)
 }
@@ -48,13 +49,6 @@ function playerActive() {
   }
 }
 
-function showGame() {
-  selectStart.style.display = 'none'
-  totalArea.style.display = 'block'
-  subTitle.style.display = 'block'
-  showPlayer.style.display = 'flex'
-  reset.style.display = 'block'
-}
 function hideGame() {
   selectStart.style.display = 'block'
   totalArea.style.display = 'none'
@@ -65,19 +59,28 @@ function hideGame() {
 }
 
 function resetGame() {
-  for (let i = 0; i < playings.length; i++) {
-    const playing = playings[i];
+  for(let i = 0; i < playings.length; i++) {
+    const playing = playings[i]
     playing.style.display = 'flex'
   }  
   
   for(let i = 0; i < boxes.length; i++) {
-    const box = boxes[i];
+    const box = boxes[i]
     if(box.innerHTML !== '') {
-      box.innerHTML = '';
+      box.innerHTML = ''
       winner = ''
     } 
   }
+  playCounter = 0
   hideGame()
+}
+
+function showGame() {
+  selectStart.style.display = "none"
+  totalArea.style.display = "block"
+  subTitle.style.display = "block"
+  showPlayer.style.display = "flex"
+  reset.style.display = "block"
 }
 
 function selectPlayer(player) {
@@ -102,8 +105,8 @@ function changePlayer() {
 }
 
 function showWinner() {
-  if (winner !== '') {
-    for (let i = 0; i < playings.length; i++) {
+  if(winner !== '') {
+    for(let i = 0; i < playings.length; i++) {
       const playing = playings[i];
       playing.style.display = 'none'
     }  
@@ -113,56 +116,51 @@ function showWinner() {
 }
 
 function checkWinner() {
-  if ((boxes[0].innerHTML === boxes[1].innerHTML) &&
+  if((boxes[0].innerHTML === boxes[1].innerHTML) &&
     (boxes[0].innerHTML === boxes[2].innerHTML) &&
-    (boxes[0].innerHTML !== '')) {
-    winner = boxes[0].innerHTML    
-  } else if ((boxes[0].innerHTML === boxes[3].innerHTML) &&
+    (boxes[0].innerHTML !== '')) {   
+    winner = boxes[0].innerHTML   
+  } else if((boxes[0].innerHTML === boxes[3].innerHTML) &&
     (boxes[0].innerHTML === boxes[6].innerHTML) &&
     (boxes[0].innerHTML !== '')) {
     winner = boxes[0].innerHTML
-  } else if ((boxes[4].innerHTML === boxes[3].innerHTML) &&
+  } else if((boxes[4].innerHTML === boxes[3].innerHTML) &&
     (boxes[4].innerHTML === boxes[5].innerHTML) &&
     (boxes[4].innerHTML !== '')) {
     winner = boxes[4].innerHTML
-  } else if ((boxes[4].innerHTML === boxes[1].innerHTML) &&
+  } else if((boxes[4].innerHTML === boxes[1].innerHTML) &&
     (boxes[4].innerHTML === boxes[7].innerHTML) &&
     (boxes[4].innerHTML !== '')) {
     winner = boxes[4].innerHTML
-  } else if ((boxes[4].innerHTML === boxes[0].innerHTML) &&
+  } else if((boxes[4].innerHTML === boxes[0].innerHTML) &&
     (boxes[4].innerHTML === boxes[8].innerHTML) &&
     (boxes[4].innerHTML !== '')) {
     winner = boxes[4].innerHTML
-  } else if ((boxes[4].innerHTML === boxes[2].innerHTML) &&
+  } else if((boxes[4].innerHTML === boxes[2].innerHTML) &&
     (boxes[4].innerHTML === boxes[6].innerHTML) &&
     (boxes[4].innerHTML !== '')) {
     winner = boxes[4].innerHTML
-  }  else if ((boxes[8].innerHTML === boxes[2].innerHTML) &&
+  }  else if((boxes[8].innerHTML === boxes[2].innerHTML) &&
     (boxes[8].innerHTML === boxes[5].innerHTML) &&
     (boxes[8].innerHTML !== '')) {
     winner = boxes[8].innerHTML
-  } else if ((boxes[8].innerHTML === boxes[6].innerHTML) && 
+  } else if((boxes[8].innerHTML === boxes[6].innerHTML) && 
     (boxes[8].innerHTML === boxes[7].innerHTML) &&
     (boxes[8].innerHTML !== '')) {
     winner = boxes[8].innerHTML
-  }   
+  }     
 }
 
-for (let i = 0; i < boxes.length; i++) {
-    const box = boxes[i];
-    function checkDraw() {
-     if(box.innerHTML !== '' && winner === '') {
-      console.log('empate')
-  //     if (winner === '') {
-  //   for (let i = 0; i < playings.length; i++) {
-  //     const playing = playings[i];
-  //     playing.style.display = 'none'
-  //   }  
- 
-  //   playerWinner.innerHTML = `DRAW GAME.`
-  //   playerWinner.style.display = 'block'
-  // }   
+function checkDraw() {
+  if(playCounter === 9) {
+     for (let i = 0; i < playings.length; i++) {
+       const playing = playings[i];
+       playing.style.display = "none"
+     }
+     playerWinner.innerHTML = `DRAW GAME.`
+     playerWinner.style.display = "block"   
+    return true
   }
-}
+  return false
 }
 
