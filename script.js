@@ -37,7 +37,7 @@ for(let i = 0; i < boxes.length; i++) {
 }
 
 function playerActive() {
-  if (currentPlayer === 'X') {
+  if(currentPlayer === 'X') {
     activePlayerO.classList.add('player-active')
     activePlayerX.classList.remove('player-active')
     currentPlayer = 'O'
@@ -83,7 +83,7 @@ function showGame() {
 }
 
 function selectPlayer(player) {
-  if(player.target.innerHTML === 'Player X'){
+  if(player.target.innerHTML === 'Player X') {
     activePlayerX.classList.add('player-active')
     activePlayerO.classList.remove('player-active')
     currentPlayer = 'X'
