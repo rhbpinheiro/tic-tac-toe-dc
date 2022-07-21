@@ -130,7 +130,7 @@ button.select-player {
   border-radius: 50px;
 }
 
-.player-active {
+.playing.player-active {
   background-color: #704A81;
   color: #5FFBF1;
 } 
@@ -177,23 +177,6 @@ h2 {
    rgba(0, 0, 0, 0.09) 0px 16px 8px,
    rgba(29, 22, 22, 0.09) 0px 32px 16px;
   border-radius: 10px; 
-}
-
-.box-flashes {
-  animation: flashes 1.5s linear infinite;
-}
-
-@keyframes flashes {
-  0% { 
-    opacity: 0; 
-  }
-  50% { 
-    opacity: 0.7;
-  }
-  100% { 
-    opacity: 0
-  }
-
 }
 
 .box:hover {

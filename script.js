@@ -96,11 +96,7 @@ function selectPlayer(player) {
 }
 
 function changePlayer() {
-  if(currentPlayer === '') {
-    playerActive()
-  } else {
-    playerActive()
-  }
+  playerActive()
 }
 
 function showWinner() {
@@ -151,7 +147,7 @@ function checkWinner() {
 }
 
 function checkDraw() {
-  if(playCounter === 9) {
+  if(playCounter === 9 && winner === '') {
      for (let i = 0; i < playings.length; i++) {
        const playing = playings[i];
        playing.style.display = "none"
